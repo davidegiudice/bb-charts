@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import { PropsWithChildren } from 'react'
 import Sidebar from './Sidebar'
 import Header from './Header'
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: PropsWithChildren) {
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
