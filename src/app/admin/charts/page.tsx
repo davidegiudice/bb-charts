@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic'
-
 'use client'
 
 import { useState } from 'react'
@@ -8,6 +6,8 @@ import { useSession } from 'next-auth/react'
 import toast from 'react-hot-toast'
 import Layout from '@/components/Layout'
 import Loading from '@/components/Loading'
+
+export const dynamic = 'force-dynamic'
 
 export default function AdminChartsPage() {
   const { data: session, status } = useSession({
