@@ -9,62 +9,58 @@
   --text: #2d2d2d;
 }
 
+@layer components {
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out;
+  }
+
+  .hover-scale:hover {
+    @apply transform scale-105;
+  }
+
+  .chart-card {
+    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-billboard-red text-white rounded-lg 
+           transition-all duration-300 ease-in-out
+           hover:bg-opacity-90 hover:shadow-lg
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .nav-link {
+    @apply relative text-billboard-black hover:text-billboard-red transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-billboard-red 
+           transition-all duration-300 ease-out;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .modern-table {
+    @apply w-full border-collapse;
+  }
+
+  .modern-table th {
+    @apply bg-billboard-black text-white px-6 py-3 text-left text-sm font-semibold;
+  }
+
+  .modern-table td {
+    @apply px-6 py-4 border-b border-gray-200;
+  }
+
+  .modern-table tr:hover {
+    @apply bg-gray-50 transition-colors duration-200;
+  }
+}
+
 body {
-  color: var(--text);
-  background: var(--accent);
-}
-
-/* Modern transitions */
-.hover-scale {
-  @apply transition-transform duration-300 ease-out;
-}
-
-.hover-scale:hover {
-  @apply transform scale-105;
-}
-
-/* Modern card styles */
-.chart-card {
-  @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
-  background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
-}
-
-/* Modern button styles */
-.btn-primary {
-  @apply px-6 py-3 bg-[--primary] text-white rounded-lg 
-         transition-all duration-300 ease-in-out
-         hover:bg-opacity-90 hover:shadow-lg
-         disabled:opacity-50 disabled:cursor-not-allowed;
-}
-
-/* Modern navigation */
-.nav-link {
-  @apply relative text-[--secondary] hover:text-[--primary] transition-colors duration-200;
-}
-
-.nav-link::after {
-  content: '';
-  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-[--primary] 
-         transition-all duration-300 ease-out;
-}
-
-.nav-link:hover::after {
-  @apply w-full;
-}
-
-/* Modern table styles */
-.modern-table {
-  @apply w-full border-collapse;
-}
-
-.modern-table th {
-  @apply bg-[--secondary] text-white px-6 py-3 text-left text-sm font-semibold;
-}
-
-.modern-table td {
-  @apply px-6 py-4 border-b border-gray-200;
-}
-
-.modern-table tr:hover {
-  @apply bg-gray-50 transition-colors duration-200;
+  @apply text-billboard-black bg-billboard-gray;
 } 

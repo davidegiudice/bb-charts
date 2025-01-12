@@ -3,29 +3,49 @@
 import { signIn } from 'next-auth/react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const result = await signIn('credentials', {
-      email,
-      password,
-      redirect: false,
-    })
+    setLoading(true)
 
-    if (result?.ok) {
-      router.push('/admin/charts')
+    try {
+      const result = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+      })
+
+      if (result?.error) {
+        toast.error(result.error)
+        return
+      }
+
+      if (result?.ok) {
+        toast.success('Logged in successfully')
+        router.push('/admin/charts')
+        router.refresh()
+      }
+    } catch (error) {
+      console.error('Login error:', error)
+      toast.error('Failed to login')
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
-        <h2 className="text-center text-3xl font-bold">Sign in</h2>
+    <div className="min-h-screen flex items-center justify-center bg-billboard-gray">
+      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-xl shadow-soft">
+        <h2 className="text-3xl font-bold text-center text-billboard-black">
+          Sign in
+        </h2>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -55,9 +75,10 @@ export default function LoginPage() {
           </div>
           <button
             type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+            disabled={loading}
+            className="btn-primary w-full"
           >
-            Sign in
+            {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
       </div>

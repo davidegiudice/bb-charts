@@ -37,17 +37,17 @@ export default function RootLayout({
             <div className="max-w-7xl mx-auto px-4">
               <ul className="flex space-x-8 py-4">
                 <li>
-                  <Link href="/hot-100-italia" className="hover:text-gray-600">
+                  <Link href="/hot-100-italia" className="nav-link">
                     HOT 100 ITALIA
                   </Link>
                 </li>
                 <li>
-                  <Link href="/album-top-100" className="hover:text-gray-600">
+                  <Link href="/album-top-100" className="nav-link">
                     ALBUM TOP 100
                   </Link>
                 </li>
                 <li>
-                  <Link href="/vinyl-top-20" className="hover:text-gray-600">
+                  <Link href="/vinyl-top-20" className="nav-link">
                     VINYL TOP 20
                   </Link>
                 </li>
