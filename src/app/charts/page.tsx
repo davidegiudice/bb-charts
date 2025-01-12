@@ -31,9 +31,9 @@ async function getCharts(params: Props['searchParams']) {
   const skip = (page - 1) * perPage
 
   const where = {
-    ...(params.chartType && { chartType: params.chartType }),
+    ...(params.chartType && { chartType: params.chartType as ChartType }),
     ...(params.weekDate && { weekDate: new Date(params.weekDate) }),
-    ...(params.genre && { genre: params.genre }),
+    ...(params.genre && { genre: params.genre as Genre })
   }
 
   const [charts, total] = await Promise.all([
