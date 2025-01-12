@@ -1,16 +1,32 @@
+export const dynamic = 'force-dynamic'
+
 'use client'
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import toast from 'react-hot-toast'
 import Layout from '@/components/Layout'
+import Loading from '@/components/Loading'
 
 export default function AdminChartsPage() {
+  const { data: session, status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      window.location.href = '/login'
+    },
+  })
+
   const [file, setFile] = useState<File | null>(null)
   const [weekDate, setWeekDate] = useState('')
   const [chartType, setChartType] = useState('TOP_100')
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+
+  // Show loading state while session is being fetched
+  if (status === "loading") {
+    return <Loading />
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
