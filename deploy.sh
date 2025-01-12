@@ -5,6 +5,10 @@ echo "Starting deployment..."
 # Pull latest changes
 git pull
 
+# Clean up
+rm -rf .next
+rm -rf node_modules/.cache
+
 # Install dependencies
 yarn install
 

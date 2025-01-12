@@ -41,9 +41,9 @@ model Artist {
 }
 
 enum Role {
-  ADMIN
-  EDITOR
   USER
+  EDITOR
+  ADMIN
 }
 
 enum ChartType {
