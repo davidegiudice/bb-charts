@@ -6,6 +6,8 @@ export async function POST(request: Request) {
   try {
     // Check if any user exists
     const userCount = await prisma.user.count()
+    console.log('Current user count:', userCount)
+
     if (userCount > 0) {
       return NextResponse.json(
         { error: 'Setup has already been completed' },
@@ -13,7 +15,10 @@ export async function POST(request: Request) {
       )
     }
 
-    const { email, password } = await request.json()
+    const body = await request.json()
+    console.log('Request body:', { ...body, password: '[REDACTED]' })
+
+    const { email, password } = body
 
     if (!email || !password) {
       return NextResponse.json(
@@ -31,7 +36,12 @@ export async function POST(request: Request) {
         name: 'Admin',
         role: 'ADMIN',
       },
+    }).catch(error => {
+      console.error('Prisma create error:', error)
+      throw error
     })
+
+    console.log('User created:', { ...user, password: '[REDACTED]' })
 
     return NextResponse.json({
       success: true,
@@ -39,9 +49,12 @@ export async function POST(request: Request) {
       email: user.email,
     })
   } catch (error) {
-    console.error('Setup error:', error)
+    console.error('Detailed setup error:', error)
     return NextResponse.json(
-      { error: 'Failed to create admin user' },
+      { 
+        error: 'Failed to create admin user',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      },
       { status: 500 }
     )
   }

@@ -1,13 +1,27 @@
 #!/bin/bash
 
-# Build the application
-npm run build
+echo "Starting deployment..."
+
+# Pull latest changes
+git pull
+
+# Install dependencies
+yarn install
 
 # Generate Prisma client
-npx prisma generate
+echo "Generating Prisma client..."
+yarn prisma generate
 
-# Apply database migrations
-npx prisma db push
+# Push database changes
+echo "Updating database schema..."
+yarn prisma db push
 
-# Start the production server
-npm start 
+# Build the application
+echo "Building application..."
+yarn build
+
+# Restart the application
+echo "Restarting PM2 process..."
+pm2 reload billboard-charts
+
+echo "Deployment completed!" 
