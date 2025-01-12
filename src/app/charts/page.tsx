@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import { prisma } from '@/lib/prisma'
+import { ChartType, Genre } from '@prisma/client'
 import Layout from '@/components/Layout'
 import { formatDate } from '@/lib/utils'
 import ChartFilters from '@/components/ChartFilters'

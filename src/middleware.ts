@@ -1,9 +1,10 @@
 import { withAuth } from 'next-auth/middleware'
 import { NextResponse } from 'next/server'
-import type { NextRequestWithAuth } from 'next-auth/middleware'
+import type { NextRequest } from 'next/server'
+import type { JWT } from 'next-auth/jwt'
 
 export default withAuth(
-  function middleware(req: NextRequestWithAuth) {
+  function middleware(req: NextRequest & { nextauth: { token: JWT | null } }) {
     const token = req.nextauth.token
     const isAdmin = token?.role === 'ADMIN'
     const isEditor = token?.role === 'EDITOR'
@@ -22,7 +23,7 @@ export default withAuth(
   },
   {
     callbacks: {
-      authorized: ({ token }) => !!token
+      authorized: ({ token }: { token: JWT | null }) => !!token
     }
   }
 )
