@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env.DATABASE_URL
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Chart {
+  id          String    @id @default(cuid())
+  weekDate    DateTime
+  chartType   ChartType
+  rank        Int
+  title       String
+  artist      String
+  label       String?
+  distributor String?
+  genre       Genre?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Artist {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  imageUrl  String?
+  bio       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+  USER
+}
+
+enum ChartType {
+  TOP_100
+  TOP_ALBUM
+  TOP_VINYL
+  TOP_50_GENRE
+}
+
+enum Genre {
+  ITALIAN
+  HIP_HOP
+  ROCK
+  ELECTRONIC_DANCE
+} 
