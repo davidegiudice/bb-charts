@@ -1,10 +1,11 @@
 import { PrismaAdapter } from "@auth/prisma-adapter"
-import NextAuth from "next-auth"
+import { NextAuthOptions } from "next-auth"
+import NextAuth from "next-auth/next"
 import CredentialsProvider from "next-auth/providers/credentials"
-import { prisma } from "@/lib/prisma"
 import bcrypt from "bcryptjs"
+import { prisma } from "@/lib/prisma"
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
@@ -19,19 +20,28 @@ export const authOptions = {
         }
 
         const user = await prisma.user.findUnique({
-          where: {
-            email: credentials.email
-          }
+          where: { email: credentials.email }
         })
 
         if (!user) {
           return null
         }
 
-        // In production, you'll need to add password comparison here
-        // const passwordMatch = await bcrypt.compare(credentials.password, user.password)
+        const isPasswordValid = await bcrypt.compare(
+          credentials.password,
+          user.password
+        )
 
-        return user
+        if (!isPasswordValid) {
+          return null
+        }
+
+        return {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+          role: user.role,
+        }
       }
     })
   ],
@@ -39,21 +49,7 @@ export const authOptions = {
     strategy: "jwt"
   },
   pages: {
-    signIn: "/login",
-  },
-  callbacks: {
-    async session({ session, token }) {
-      if (session?.user) {
-        session.user.role = token.role
-      }
-      return session
-    },
-    async jwt({ token, user }) {
-      if (user) {
-        token.role = user.role
-      }
-      return token
-    }
+    signIn: "/login"
   }
 }
 
