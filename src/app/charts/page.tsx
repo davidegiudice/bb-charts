@@ -5,6 +5,7 @@ import { formatDate } from '@/lib/utils'
 import ChartFilters from '@/components/ChartFilters'
 import Loading from '@/components/Loading'
 import WeekSelector from '@/components/WeekSelector'
+import Pagination from '@/components/Pagination'
 
 type Props = {
   searchParams: {

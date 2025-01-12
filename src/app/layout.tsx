@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Image from 'next/image'
+import Link from 'next/link'
 import './globals.css'
 import Providers from '@/components/Providers'
 
@@ -21,10 +23,13 @@ export default function RootLayout({
         <Providers>
           <header className="bg-black py-4">
             <div className="max-w-7xl mx-auto px-4">
-              <img 
+              <Image 
                 src="/billboard-logo.png" 
                 alt="Billboard Italia" 
-                className="h-8 mx-auto"
+                width={120}
+                height={32}
+                className="h-8 mx-auto w-auto"
+                priority
               />
             </div>
           </header>
@@ -32,19 +37,19 @@ export default function RootLayout({
             <div className="max-w-7xl mx-auto px-4">
               <ul className="flex space-x-8 py-4">
                 <li>
-                  <a href="/hot-100-italia" className="hover:text-gray-600">
+                  <Link href="/hot-100-italia" className="hover:text-gray-600">
                     HOT 100 ITALIA
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/album-top-100" className="hover:text-gray-600">
+                  <Link href="/album-top-100" className="hover:text-gray-600">
                     ALBUM TOP 100
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/vinyl-top-20" className="hover:text-gray-600">
+                  <Link href="/vinyl-top-20" className="hover:text-gray-600">
                     VINYL TOP 20
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
