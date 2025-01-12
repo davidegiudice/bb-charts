@@ -1,11 +1,8 @@
 import { withAuth } from 'next-auth/middleware'
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-import type { JWT } from 'next-auth/jwt'
 
 export default withAuth(
-  // @ts-expect-error - `withAuth` has incomplete types
-  function middleware(req: NextRequest & { nextauth: { token: JWT | null } }) {
+  function middleware(req) {
     const token = req.nextauth.token
     const isAdmin = token?.role === 'ADMIN'
     const isEditor = token?.role === 'EDITOR'
@@ -21,6 +18,11 @@ export default withAuth(
     }
 
     return NextResponse.next()
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => !!token
+    }
   }
 )
 

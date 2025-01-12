@@ -2,7 +2,7 @@
 
 import { signIn } from 'next-auth/react'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import toast from 'react-hot-toast'
 
 export default function LoginPage() {
@@ -10,6 +10,8 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const callbackUrl = searchParams.get('callbackUrl') || '/admin/charts'
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -20,6 +22,7 @@ export default function LoginPage() {
         email,
         password,
         redirect: false,
+        callbackUrl,
       })
 
       if (result?.error) {
@@ -29,7 +32,7 @@ export default function LoginPage() {
 
       if (result?.ok) {
         toast.success('Logged in successfully')
-        router.push('/admin/charts')
+        router.push(callbackUrl)
         router.refresh()
       }
     } catch (error) {
