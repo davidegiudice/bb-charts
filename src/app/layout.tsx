@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,13 +8,6 @@ import { authOptions } from '@/lib/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: 'Billboard Italia',
-    description: 'Billboard Charts Italia - Official Music Charts',
-  }
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -23,6 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
+      <head>
+        <title>Billboard Italia</title>
+        <meta name="description" content="Billboard Charts Italia - Official Music Charts" />
+      </head>
       <body className={inter.className}>
         <Providers>
           <header className="bg-black py-4">
