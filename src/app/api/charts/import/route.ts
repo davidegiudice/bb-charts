@@ -12,7 +12,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-  try {
     const formData = await request.formData()
     const file = formData.get('file') as File
     const weekDate = formData.get('weekDate') as string
@@ -36,24 +35,34 @@ export async function POST(request: Request) {
     }
 
     // Process and insert data
-    const charts = await prisma.$transaction(
-      data.map((row: any) => 
-        prisma.chart.create({
-          data: {
-            weekDate: new Date(row.weekDate),
-            chartType: row.chartType,
-            rank: parseInt(row.rank),
-            title: row.title,
-            artist: row.artist,
-            label: row.label || null,
-            distributor: row.distributor || null,
-            genre: row.genre || null
-          }
-        })
-      )
-    )
+    await prisma.$transaction(async (tx) => {
+      // Delete existing entries for this week and chart type
+      await tx.chart.deleteMany({
+        where: {
+          weekDate: new Date(weekDate),
+          chartType: chartType as any,
+        },
+      })
 
-    return NextResponse.json({ success: true, count: charts.length })
+      // Insert new entries
+      await tx.chart.createMany({
+        data: data.map((row: any, index) => ({
+          weekDate: new Date(weekDate),
+          chartType: chartType as any,
+          rank: index + 1,
+          title: row.TITOLO,
+          artist: row.ARTISTA,
+          label: row.ETICHETTA,
+          distributor: row.DISTRIBUTORE,
+        })),
+      })
+    })
+
+    return NextResponse.json({ 
+      success: true,
+      message: `Imported ${data.length} entries successfully`
+    })
+
   } catch (error) {
     console.error('Chart import error:', error)
     return NextResponse.json(
