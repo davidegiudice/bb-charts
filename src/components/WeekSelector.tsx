@@ -1,39 +1,33 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import { formatDate } from '@/lib/utils'
+import { useRouter, useSearchParams } from 'next/navigation'
 
-type Props = {
-  weeks: Date[]
+interface WeekSelectorProps {
+  weeks: string[]
   selectedWeek?: string
 }
 
-export default function WeekSelector({ weeks, selectedWeek }: Props) {
+export default function WeekSelector({ weeks, selectedWeek }: WeekSelectorProps) {
   const router = useRouter()
+  const searchParams = useSearchParams()
 
-  const handleWeekChange = (weekDate: string) => {
-    const searchParams = new URLSearchParams(window.location.search)
-    searchParams.set('weekDate', weekDate)
-    router.push(`/charts?${searchParams.toString()}`)
+  const handleWeekChange = (week: string) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('weekDate', week)
+    router.push(`?${params.toString()}`)
   }
 
   return (
-    <div className="mb-6">
-      <label className="block text-sm font-medium text-gray-700 mb-2">
-        Select Week
-      </label>
-      <select
-        value={selectedWeek || ''}
-        onChange={(e) => handleWeekChange(e.target.value)}
-        className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-      >
-        <option value="">All Weeks</option>
-        {weeks.map((week) => (
-          <option key={week.toISOString()} value={week.toISOString()}>
-            {formatDate(week)}
-          </option>
-        ))}
-      </select>
-    </div>
+    <select
+      value={selectedWeek || weeks[0]}
+      onChange={(e) => handleWeekChange(e.target.value)}
+      className="block w-full rounded-md border-gray-300 shadow-sm p-2"
+    >
+      {weeks.map((week) => (
+        <option key={week} value={week}>
+          Week of {new Date(week).toLocaleDateString()}
+        </option>
+      ))}
+    </select>
   )
 } 

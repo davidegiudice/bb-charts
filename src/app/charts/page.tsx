@@ -1,44 +1,34 @@
 'use client'
 
 import { Suspense } from 'react'
-import Layout from '@/components/Layout'
-import Loading from '@/components/Loading'
+import WeekSelector from '@/components/WeekSelector'
 import WeeksLoader from '@/components/WeeksLoader'
-import ChartsList from '@/components/ChartsList'
-import ClientChartComponents from '@/components/ClientChartComponents'
+import Loading from '@/components/Loading'
 
-type Props = {
-  searchParams: {
-    page?: string
-    chartType?: string
-    weekDate?: string
-    genre?: string
-  }
+interface PageProps {
+  searchParams: { weekDate?: string }
 }
 
-export default function ChartsPage({ searchParams }: Props) {
+export default function ChartsPage({ searchParams }: PageProps) {
   return (
-    <Layout>
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-2xl font-bold mb-6">Charts</h1>
-        
-        <Suspense fallback={<Loading />}>
-          <ClientChartComponents searchParams={searchParams}>
-            <WeeksLoader>
-              {(weeks) => (
-                <WeekSelector 
-                  weeks={weeks} 
-                  selectedWeek={searchParams.weekDate} 
-                />
-              )}
-            </WeeksLoader>
-          </ClientChartComponents>
-        </Suspense>
-
-        <Suspense fallback={<Loading />}>
-          <ChartsList searchParams={searchParams} />
-        </Suspense>
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-4xl font-bold">Charts</h1>
+        <div className="w-64">
+          <WeeksLoader>
+            {(weeks) => (
+              <WeekSelector 
+                weeks={weeks} 
+                selectedWeek={searchParams.weekDate} 
+              />
+            )}
+          </WeeksLoader>
+        </div>
       </div>
-    </Layout>
+
+      <Suspense fallback={<Loading />}>
+        {/* Chart content here */}
+      </Suspense>
+    </div>
   )
 } 

@@ -59,6 +59,34 @@
   .modern-table tr:hover {
     @apply bg-gray-50 transition-colors duration-200;
   }
+
+  .chart-header {
+    @apply bg-[#1e3a8a] text-white px-4 py-3 flex items-center text-sm font-bold;
+  }
+
+  .chart-cell {
+    @apply px-4 py-3;
+  }
+
+  .chart-row {
+    @apply flex items-center hover:bg-gray-50 border-b border-gray-200 transition-colors duration-200;
+  }
+
+  .rank-cell {
+    @apply w-16 text-3xl font-bold text-center;
+  }
+
+  .title-cell {
+    @apply flex-1 flex items-center;
+  }
+
+  .movement-cell {
+    @apply w-28 text-center;
+  }
+
+  .weeks-cell {
+    @apply w-36 text-center;
+  }
 }
 
 body {

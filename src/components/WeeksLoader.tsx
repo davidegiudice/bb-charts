@@ -1,19 +1,35 @@
-import { prisma } from '@/lib/prisma'
+'use client'
 
-async function getAvailableWeeks() {
-  const weeks = await prisma.chart.findMany({
-    select: { weekDate: true },
-    distinct: ['weekDate'],
-    orderBy: { weekDate: 'desc' },
-  })
-  return weeks.map(w => w.weekDate)
+import { useEffect, useState } from 'react'
+import Loading from './Loading'
+
+interface WeeksLoaderProps {
+  children: (weeks: string[]) => React.ReactNode
 }
 
-export default async function WeeksLoader({ 
-  children 
-}: { 
-  children: (weeks: Date[]) => React.ReactNode 
-}) {
-  const weeks = await getAvailableWeeks()
-  return children(weeks)
+export default function WeeksLoader({ children }: WeeksLoaderProps) {
+  const [weeks, setWeeks] = useState<string[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadWeeks() {
+      try {
+        const response = await fetch('/api/charts/weeks')
+        const data = await response.json()
+        setWeeks(data.weeks)
+      } catch (error) {
+        console.error('Failed to load weeks:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadWeeks()
+  }, [])
+
+  if (loading) {
+    return <Loading />
+  }
+
+  return <>{children(weeks)}</>
 } 
