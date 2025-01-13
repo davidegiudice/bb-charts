@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import './globals.css'
 import Providers from '@/components/Providers'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/lib/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
