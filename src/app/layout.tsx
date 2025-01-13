@@ -9,9 +9,11 @@ import { authOptions } from '@/lib/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'Billboard Italia',
-  description: 'Billboard Charts Italia - Official Music Charts',
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Billboard Italia',
+    description: 'Billboard Charts Italia - Official Music Charts',
+  }
 }
 
 export default function RootLayout({
