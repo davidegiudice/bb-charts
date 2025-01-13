@@ -1,31 +1,23 @@
+import { NextRequest, NextResponse } from 'next/server'
 import { withAuth } from 'next-auth/middleware'
-import { NextResponse } from 'next/server'
 
 export default withAuth(
-  function middleware(req) {
+  function middleware(req: NextRequest) {
     const token = req.nextauth.token
     const isAdmin = token?.role === 'ADMIN'
     const isEditor = token?.role === 'EDITOR'
 
-    // Protect admin routes
-    if (req.nextUrl.pathname.startsWith('/admin') && !isAdmin) {
+    if (!isAdmin && !isEditor) {
       return NextResponse.redirect(new URL('/login', req.url))
     }
-
-    // Protect editor routes
-    if (req.nextUrl.pathname.startsWith('/editor') && !isEditor && !isAdmin) {
-      return NextResponse.redirect(new URL('/login', req.url))
-    }
-
-    return NextResponse.next()
   },
   {
     callbacks: {
-      authorized: ({ token }) => !!token
-    }
+      authorized: ({ token }) => !!token,
+    },
   }
 )
 
 export const config = {
-  matcher: ['/admin/:path*', '/editor/:path*']
+  matcher: ['/admin/:path*', '/editor/:path*'],
 } 
