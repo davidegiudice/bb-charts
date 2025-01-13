@@ -1,9 +1,19 @@
 import { NextResponse } from 'next/server'
-import { read, utils } from 'xlsx'
+import { parseStringPromise } from 'xml2js'
 import { prisma } from '@/lib/prisma'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../../auth/[...nextauth]/route'
 import { ChartType } from '@prisma/client'
+
+interface ChartItem {
+  rank: string[]
+  peak_rank: string[]
+  weeks_on_chart: string[]
+  title: string[]
+  artist_name: string[]
+  imprint: string[]
+  label: string[]
+}
 
 export async function POST(request: Request) {
   try {
@@ -24,30 +34,32 @@ export async function POST(request: Request) {
       )
     }
 
-    const buffer = await file.arrayBuffer()
-    const workbook = read(buffer)
-    const worksheet = workbook.Sheets[workbook.SheetNames[0]]
-    const rawData = utils.sheet_to_json(worksheet)
-
-    if (!Array.isArray(rawData) || rawData.length === 0) {
-      return NextResponse.json({ error: 'Invalid file format' }, { status: 400 })
+    // Read XML file
+    const xmlText = await file.text()
+    const result = await parseStringPromise(xmlText)
+    
+    if (!result.chart_feed?.chart?.[0]?.items?.[0]?.item) {
+      return NextResponse.json({ error: 'Invalid XML format' }, { status: 400 })
     }
 
-    // Validate and transform the data based on the Excel structure
-    const data = rawData.map((row: any, index) => {
-      // Check for required fields based on your Excel columns
-      if (!row.TITOLO || !row.ARTISTA) {
-        throw new Error(`Missing required fields at row ${index + 1}`)
+    const items = result.chart_feed.chart[0].items[0].item as ChartItem[]
+
+    // Transform XML data to chart entries
+    const data = items.map((item) => {
+      if (!item.title?.[0] || !item.artist_name?.[0]) {
+        throw new Error('Missing required fields')
       }
 
       return {
         weekDate: new Date(weekDate),
         chartType,
-        rank: row['Pos. Att.'] || index + 1, // Use actual position from Excel
-        title: row.TITOLO.trim(),
-        artist: row.ARTISTA.trim(),
-        label: row.ETICHETTA?.trim() || null,
-        distributor: row.DISTRIBUTORE?.trim() || null,
+        rank: parseInt(item.rank[0]),
+        peakRank: parseInt(item.peak_rank[0]),
+        weeksOnChart: parseInt(item.weeks_on_chart[0]),
+        title: item.title[0].trim(),
+        artist: item.artist_name[0].trim(),
+        label: item.label?.[0]?.trim() || null,
+        distributor: item.imprint?.[0]?.trim() || null,
       }
     })
 

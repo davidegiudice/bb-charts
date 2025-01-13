@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<chart_feed>
+    <chart>
+        <items>
+            <item>
+                <rank>1</rank>
+                <peak_rank>11</peak_rank>
+                <weeks_on_chart>11</weeks_on_chart>
+                <title>IL FILO ROSSO</title>
+                <artist_name>ALFA</artist_name>
+                <imprint>ARTIST FIRST</imprint>
+                <label>ARTIST FIRST</label>
+            </item>
+            <item>
+                <rank>2</rank>
+                <peak_rank>10</peak_rank>
+                <weeks_on_chart>15</weeks_on_chart>
+                <title>ORA CHE NON HO PIÙ TE</title>
+                <artist_name>CESARE CREMONINI</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>3</rank>
+                <peak_rank>13</peak_rank>
+                <weeks_on_chart>7</weeks_on_chart>
+                <title>ISLANDA</title>
+                <artist_name>PINGUINI TATTICI NUCLEARI</artist_name>
+                <imprint>EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>4</rank>
+                <peak_rank>15</peak_rank>
+                <weeks_on_chart>17</weeks_on_chart>
+                <title>PER DUE COME NOI</title>
+                <artist_name>OLLY, ANGELINA MANGO &amp; JVLI</artist_name>
+                <imprint>EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>5</rank>
+                <peak_rank>9</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>LEI</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>6</rank>
+                <peak_rank>19</peak_rank>
+                <weeks_on_chart>10</weeks_on_chart>
+                <title>SCARABOCCHI</title>
+                <artist_name>OLLY &amp; JVLI</artist_name>
+                <imprint>EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>7</rank>
+                <peak_rank>12</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>GLI SBANDATI HANNO PERSO</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>8</rank>
+                <peak_rank>29</peak_rank>
+                <weeks_on_chart>11</weeks_on_chart>
+                <title>APT.</title>
+                <artist_name>ROSÉ &amp; BRUNO MARS</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>9</rank>
+                <peak_rank>24</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>BAMBOLA</title>
+                <artist_name>ARTIE 5IVE FEAT. NIKY SAVAGE</artist_name>
+                <imprint>TRENCHES RECORDS / WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>10</rank>
+                <peak_rank>32</peak_rank>
+                <weeks_on_chart>25</weeks_on_chart>
+                <title>ROSSETTO E CAFFÈ</title>
+                <artist_name>SAL DA VINCI</artist_name>
+                <imprint>COSE PRODUCTION SRL</imprint>
+                <label>ALTAFONTE</label>
+            </item>
+            <item>
+                <rank>11</rank>
+                <peak_rank>25</peak_rank>
+                <weeks_on_chart>15</weeks_on_chart>
+                <title>AMORE DISPERATO</title>
+                <artist_name>ACHILLE LAURO</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>12</rank>
+                <peak_rank>31</peak_rank>
+                <weeks_on_chart>16</weeks_on_chart>
+                <title>TU ME QUIERES</title>
+                <artist_name>BABY GANG, OMEGA, HIGASHI &amp; ROBERTO FERRANTE</artist_name>
+                <imprint>BABY GANG / PLANET RECORDS</imprint>
+                <label>PLANET DISTRIBUTION</label>
+            </item>
+            <item>
+                <rank>13</rank>
+                <peak_rank>35</peak_rank>
+                <weeks_on_chart>43</weeks_on_chart>
+                <title>DEVASTANTE</title>
+                <artist_name>OLLY &amp; JVLI</artist_name>
+                <imprint>EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>14</rank>
+                <peak_rank>33</peak_rank>
+                <weeks_on_chart>6</weeks_on_chart>
+                <title>TU ED IO</title>
+                <artist_name>GEOLIER FEAT. ROSE VILLAIN</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>15</rank>
+                <peak_rank>23</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>È FINITA LA PACE</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>16</rank>
+                <peak_rank>28</peak_rank>
+                <weeks_on_chart>5</weeks_on_chart>
+                <title>TIP TAP</title>
+                <artist_name>PAPA V, NERISSIMA SERPE &amp; FRITU</artist_name>
+                <imprint>COLUMBIA / EMI</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>17</rank>
+                <peak_rank>40</peak_rank>
+                <weeks_on_chart>18</weeks_on_chart>
+                <title>SANT'ALLEGRIA (JACK SANI REMIX)</title>
+                <artist_name>ORNELLA VANONI &amp; JACK SANI</artist_name>
+                <imprint>NAR INTERNATIONAL</imprint>
+                <label>ADA / WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>18</rank>
+                <peak_rank>45</peak_rank>
+                <weeks_on_chart>27</weeks_on_chart>
+                <title>TT LE GIRLZ</title>
+                <artist_name>ANNA &amp; NIKY SAVAGE</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>19</rank>
+                <peak_rank>42</peak_rank>
+                <weeks_on_chart>20</weeks_on_chart>
+                <title>DIE WITH A SMILE</title>
+                <artist_name>LADY GAGA &amp; BRUNO MARS</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC/WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>20</rank>
+                <peak_rank>48</peak_rank>
+                <weeks_on_chart>26</weeks_on_chart>
+                <title>SI ANTES TE HUBIERA CONOCIDO</title>
+                <artist_name>KAROL G</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>21</rank>
+                <peak_rank>46</peak_rank>
+                <weeks_on_chart>10</weeks_on_chart>
+                <title>QUEI RICORDI LÀ</title>
+                <artist_name>OLLY &amp; JVLI</artist_name>
+                <imprint>EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>22</rank>
+                <peak_rank>49</peak_rank>
+                <weeks_on_chart>12</weeks_on_chart>
+                <title>NIENTE PANICO</title>
+                <artist_name>GHALI</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>23</rank>
+                <peak_rank>47</peak_rank>
+                <weeks_on_chart>11</weeks_on_chart>
+                <title>MI PIACCIONO LE ARMI</title>
+                <artist_name>SIMBA LA RUE</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>24</rank>
+                <peak_rank>43</peak_rank>
+                <weeks_on_chart>4</weeks_on_chart>
+                <title>AMARO</title>
+                <artist_name>PINGUINI TATTICI NUCLEARI</artist_name>
+                <imprint>EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>25</rank>
+                <peak_rank>27</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>POWER SLAP</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>26</rank>
+                <peak_rank>52</peak_rank>
+                <weeks_on_chart>10</weeks_on_chart>
+                <title>BORN WITH A BROKEN HEART</title>
+                <artist_name>DAMIANO DAVID</artist_name>
+                <imprint>SONY MUSIC / ARISTA</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>27</rank>
+                <peak_rank>72</peak_rank>
+                <weeks_on_chart>8</weeks_on_chart>
+                <title>THAT'S SO TRUE</title>
+                <artist_name>GRACIE ABRAMS</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>28</rank>
+                <peak_rank>55</peak_rank>
+                <weeks_on_chart>16</weeks_on_chart>
+                <title>ROMANTICO MA MUORI</title>
+                <artist_name>PINGUINI TATTICI NUCLEARI</artist_name>
+                <imprint>EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>29</rank>
+                <peak_rank>68</peak_rank>
+                <weeks_on_chart>31</weeks_on_chart>
+                <title>30ºC</title>
+                <artist_name>ANNA</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>30</rank>
+                <peak_rank>57</peak_rank>
+                <weeks_on_chart>4</weeks_on_chart>
+                <title>PEZZI DA 100</title>
+                <artist_name>TONY EFFE &amp; KID YUGI</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>31</rank>
+                <peak_rank>34</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>VITTIMA</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>32</rank>
+                <peak_rank>1</peak_rank>
+                <weeks_on_chart>7</weeks_on_chart>
+                <title>ALL I WANT FOR CHRISTMAS IS YOU</title>
+                <artist_name>MARIAH CAREY</artist_name>
+                <imprint>COLUMBIA/LEGACY</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>33</rank>
+                <peak_rank>71</peak_rank>
+                <weeks_on_chart>30</weeks_on_chart>
+                <title>STORIE BREVI</title>
+                <artist_name>TANANAI &amp; ANNALISA</artist_name>
+                <imprint>ECLECTIC RECORDS </imprint>
+                <label>UNIVERSAL MUSIC / WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>34</rank>
+                <peak_rank>2</peak_rank>
+                <weeks_on_chart>7</weeks_on_chart>
+                <title>LAST CHRISTMAS</title>
+                <artist_name>WHAM!</artist_name>
+                <imprint>SONY MUSIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>35</rank>
+                <peak_rank>80</peak_rank>
+                <weeks_on_chart>27</weeks_on_chart>
+                <title>HELLO KITTY</title>
+                <artist_name>ANNA &amp; SILLYELLY</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>36</rank>
+                <peak_rank>66</peak_rank>
+                <weeks_on_chart>15</weeks_on_chart>
+                <title>BUIO DAVANTI</title>
+                <artist_name>LAZZA</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>37</rank>
+                <peak_rank>78</peak_rank>
+                <weeks_on_chart>41</weeks_on_chart>
+                <title>L'ULTIMA POESIA</title>
+                <artist_name>GEOLIER &amp; ULTIMO</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>38</rank>
+                <peak_rank>61</peak_rank>
+                <weeks_on_chart>10</weeks_on_chart>
+                <title>HEETS</title>
+                <artist_name>LELE BLADE FEAT. GEOLIER</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>39</rank>
+                <peak_rank>70</peak_rank>
+                <weeks_on_chart>30</weeks_on_chart>
+                <title>EPISODIO D'AMORE</title>
+                <artist_name>GEOLIER</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>40</rank>
+                <peak_rank>97</peak_rank>
+                <weeks_on_chart>27</weeks_on_chart>
+                <title>I LOVE IT</title>
+                <artist_name>ANNA &amp; ARTIE 5IVE</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>41</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>MOVE</title>
+                <artist_name>ADAM PORT, STRYV, KEINEMUSIK, ORSO &amp; MALACHIII FEAT CAMILA CABELLO</artist_name>
+                <imprint>KEINE MUSIK / EMI</imprint>
+                <label>MTN MUTING THE NOISE / UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>42</rank>
+                <peak_rank>98</peak_rank>
+                <weeks_on_chart>30</weeks_on_chart>
+                <title>BIRDS OF A FEATHER</title>
+                <artist_name>BILLIE EILISH</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>43</rank>
+                <peak_rank>88</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>I P' ME, TU P' TE</title>
+                <artist_name>GEOLIER</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>44</rank>
+                <peak_rank>89</peak_rank>
+                <weeks_on_chart>32</weeks_on_chart>
+                <title>SESSO E SAMBA</title>
+                <artist_name>TONY EFFE &amp; GAIA</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>45</rank>
+                <peak_rank>84</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>POSTO MIO</title>
+                <artist_name>THASUP &amp; MARA SATTEI</artist_name>
+                <imprint>THASUP S.R.L. / EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>46</rank>
+                <peak_rank>37</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>DETOX / REHAB</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>47</rank>
+                <peak_rank>90</peak_rank>
+                <weeks_on_chart>8</weeks_on_chart>
+                <title>FEELING</title>
+                <artist_name>ELODIE &amp; TIZIANO FERRO</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>48</rank>
+                <peak_rank>73</peak_rank>
+                <weeks_on_chart>5</weeks_on_chart>
+                <title>SAN LUCA</title>
+                <artist_name>CESARE CREMONINI &amp; LUCA CARBONI</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>49</rank>
+                <peak_rank>95</peak_rank>
+                <weeks_on_chart>43</weeks_on_chart>
+                <title>COME UN TUONO</title>
+                <artist_name>ROSE VILLAIN FEAT. GUÈ</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>50</rank>
+                <peak_rank>94</peak_rank>
+                <weeks_on_chart>48</weeks_on_chart>
+                <title>BEAUTIFUL THINGS</title>
+                <artist_name>BENSON BOONE</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>51</rank>
+                <peak_rank>82</peak_rank>
+                <weeks_on_chart>8</weeks_on_chart>
+                <title>VIDEO HOT</title>
+                <artist_name>COCO FEAT. GEOLIER</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>52</rank>
+                <peak_rank>100</peak_rank>
+                <weeks_on_chart>29</weeks_on_chart>
+                <title>HO VOGLIA DI TE</title>
+                <artist_name>JVLI, EMMA &amp; OLLY</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>53</rank>
+                <peak_rank>3</peak_rank>
+                <weeks_on_chart>6</weeks_on_chart>
+                <title>JINGLE BELL ROCK</title>
+                <artist_name>BOBBY HELMS</artist_name>
+                <imprint>GEFFEN</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>54</rank>
+                <peak_rank>44</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>CRASH</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>55</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>SINCERAMENTE</title>
+                <artist_name>ANNALISA</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>56</rank>
+                <peak_rank>38</peak_rank>
+                <weeks_on_chart>8</weeks_on_chart>
+                <title>PASTELLO BIANCO</title>
+                <artist_name>PINGUINI TATTICI NUCLEARI</artist_name>
+                <imprint>COLUMBIA</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>57</rank>
+                <peak_rank>50</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>SOLI</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>58</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>GATA ONLY (REMIX)</title>
+                <artist_name>FLOYYMENOR, OZUNA &amp; ANITTA</artist_name>
+                <imprint>FLOYYMENOR</imprint>
+                <label>UNITED MASTERS</label>
+            </item>
+            <item>
+                <rank>59</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>1 MOMENTO</title>
+                <artist_name>ASTRO FEAT. ANNA</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>60</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>MAI PER SEMPRE</title>
+                <artist_name>GEOLIER</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>61</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>BEATRICE</title>
+                <artist_name>TEDUA FEAT. ANNALISA</artist_name>
+                <imprint>EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>62</rank>
+                <peak_rank>4</peak_rank>
+                <weeks_on_chart>5</weeks_on_chart>
+                <title>FELIZ NAVIDAD</title>
+                <artist_name>JOSÉ FELICIANO</artist_name>
+                <imprint>RCA RECORDS LABEL</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>63</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>ALTROVE</title>
+                <artist_name>ULTIMO</artist_name>
+                <imprint>ULTIMO RECORDS</imprint>
+                <label>BELIEVE</label>
+            </item>
+            <item>
+                <rank>64</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>TONIGHT</title>
+                <artist_name>ANNA</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>65</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>100 MESSAGGI</title>
+                <artist_name>LAZZA</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>66</rank>
+                <peak_rank>54</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>PENTOTHAL</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>67</rank>
+                <peak_rank>79</peak_rank>
+                <weeks_on_chart>4</weeks_on_chart>
+                <title>PERDONO</title>
+                <artist_name>TONY BOY FEAT. SHIVA</artist_name>
+                <imprint>22 SRL / WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>68</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>TUTA GOLD</title>
+                <artist_name>MAHMOOD</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>69</rank>
+                <peak_rank>60</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>FACTOTUM</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>70</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>MEZZO ROTTO</title>
+                <artist_name>ALESSANDRA AMOROSO FEAT. BIGMAMA</artist_name>
+                <imprint>EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>71</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>POSTI VUOTI</title>
+                <artist_name>COMA_COSE</artist_name>
+                <imprint>ASIAN FAKE / WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>72</rank>
+                <peak_rank>5</peak_rank>
+                <weeks_on_chart>5</weeks_on_chart>
+                <title>IT'S BEGINNING TO LOOK A LOT LIKE CHRISTMAS</title>
+                <artist_name>MICHAEL BUBLÉ</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>73</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>NON MI BASTA MAI</title>
+                <artist_name>TONY BOY FEAT. FRAH QUINTALE &amp; CAPO PLAZA</artist_name>
+                <imprint>22 SRL / WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>74</rank>
+                <peak_rank>7</peak_rank>
+                <weeks_on_chart>5</weeks_on_chart>
+                <title>CHRISTMAS PARTY</title>
+                <artist_name>FRANCESCA MICHIELIN</artist_name>
+                <imprint>COLUMBIA</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>75</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>RAGNI</title>
+                <artist_name>TANANAI</artist_name>
+                <imprint>ECLECTIC RECORDS / EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>76</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>MMH</title>
+                <artist_name>FRED DE PALMA FEAT. ROSE VILLAIN</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>77</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>CODEINE</title>
+                <artist_name>TONY BOY FEAT. ANNA</artist_name>
+                <imprint>22 SRL / WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>78</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>CLICK BOOM!</title>
+                <artist_name>ROSE VILLAIN</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>79</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>GOOD LUCK, BABE!</title>
+                <artist_name>CHAPPELL ROAN</artist_name>
+                <imprint>AMUSEMENT RECORDS</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>80</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>BBE</title>
+                <artist_name>ANNA &amp; LAZZA</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>81</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>VERTEBRE</title>
+                <artist_name>SETTEMBRE</artist_name>
+                <imprint>ISOLA DEGLI ARTISTI</imprint>
+                <label>ADA / WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>82</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>CHE SOLE OGGI</title>
+                <artist_name>GEOLIER</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>83</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>DILLO SOLO AL BUIO</title>
+                <artist_name>ELISA</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>84</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>VRP</title>
+                <artist_name>SIMBA LA RUE &amp; FT KINGS</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>85</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>PELIGROSA</title>
+                <artist_name>FLOYYMENOR</artist_name>
+                <imprint>FLOYYMENOR</imprint>
+                <label>UNITED MASTERS</label>
+            </item>
+            <item>
+                <rank>86</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>BOOSTER</title>
+                <artist_name>TANANAI</artist_name>
+                <imprint>ECLECTIC RECORDS / EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>87</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>SOLDI ARROTOLATI</title>
+                <artist_name>CAPO PLAZA FEAT. ANNA</artist_name>
+                <imprint>PLAZA MUSIC/WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>88</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>EL PIBE DE ORO</title>
+                <artist_name>GEOLIER</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>89</rank>
+                <peak_rank>65</peak_rank>
+                <weeks_on_chart>3</weeks_on_chart>
+                <title>MI SONO INNAMORATO DI UN AI</title>
+                <artist_name>MARRACASH</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>90</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>VAI!</title>
+                <artist_name>ALFA</artist_name>
+                <imprint>ARTIST FIRST</imprint>
+                <label>ARTIST FIRST</label>
+            </item>
+            <item>
+                <rank>91</rank>
+                <peak_rank>6</peak_rank>
+                <weeks_on_chart>5</weeks_on_chart>
+                <title>IT'S THE MOST WONDERFUL TIME OF THE YEAR</title>
+                <artist_name>ANDY WILLIAMS</artist_name>
+                <imprint>COLUMBIA</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>92</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>WHY U MAD</title>
+                <artist_name>ANNA</artist_name>
+                <imprint>EMI</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>93</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>LOSE CONTROL</title>
+                <artist_name>TEDDY SWIMS</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>94</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>GOTHAM</title>
+                <artist_name>SHIVA FEAT. KID YUGI</artist_name>
+                <imprint>MILANO OVEST/COLUMBIA</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>95</rank>
+                <peak_rank>8</peak_rank>
+                <weeks_on_chart>4</weeks_on_chart>
+                <title>HAPPY XMAS (WAR IS OVER)</title>
+                <artist_name>JOHN LENNON, YOKO ONO, THE HARLEM COMMUNITY CHOIR &amp; THE PLASTIC ONO BAND</artist_name>
+                <imprint>UNIVERSAL MUSIC</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>96</rank>
+                <peak_rank>58</peak_rank>
+                <weeks_on_chart>2</weeks_on_chart>
+                <title>DIGOS</title>
+                <artist_name>SHIVA &amp; PAKY</artist_name>
+                <imprint>MILANO OVEST/COLUMBIA</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>97</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>CANZONE D'ODIO</title>
+                <artist_name>LAZZA &amp; LIL BABY</artist_name>
+                <imprint>ISLAND</imprint>
+                <label>UNIVERSAL MUSIC</label>
+            </item>
+            <item>
+                <rank>98</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>BURNOUT</title>
+                <artist_name>PINGUINI TATTICI NUCLEARI</artist_name>
+                <imprint>EPIC</imprint>
+                <label>SONY MUSIC</label>
+            </item>
+            <item>
+                <rank>99</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>DEGENERE</title>
+                <artist_name>MYKE TOWERS FEAT. BENNY BLANCO</artist_name>
+                <imprint>WARNER MUSIC</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+            <item>
+                <rank>100</rank>
+                <peak_rank>NEW</peak_rank>
+                <weeks_on_chart>1</weeks_on_chart>
+                <title>VETRI NERI</title>
+                <artist_name>AVA, ANNA &amp; CAPO PLAZA</artist_name>
+                <imprint>WARNER MUSIC / EMI</imprint>
+                <label>WARNER MUSIC</label>
+            </item>
+        </items>
+    </chart>
+</chart_feed>

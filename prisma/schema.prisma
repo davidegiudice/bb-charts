@@ -18,17 +18,19 @@ model User {
 }
 
 model Chart {
-  id          String    @id @default(cuid())
-  weekDate    DateTime
-  chartType   ChartType
-  rank        Int
-  title       String
-  artist      String
-  label       String?
-  distributor String?
-  genre       Genre?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id           String    @id @default(cuid())
+  weekDate     DateTime
+  chartType    ChartType
+  rank         Int
+  peakRank     Int
+  weeksOnChart Int
+  title        String
+  artist       String
+  label        String?
+  distributor  String?
+  genre        Genre?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 }
 
 model Artist {
