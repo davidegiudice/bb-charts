@@ -56,11 +56,12 @@ export default async function Hot100Page() {
               <div className="flex flex-1 items-center">
                 <div className="w-20 h-20 relative mr-4 overflow-hidden">
                   <Image
-                    src={chart.imageUrl || '/placeholder-album.png'}
+                    src={chart.imageUrl || '/api/placeholder'}
                     alt={`${chart.title} cover`}
                     fill
                     className="object-cover"
                     sizes="80px"
+                    unoptimized={!chart.imageUrl}
                   />
                 </div>
                 <div>
