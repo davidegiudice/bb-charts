@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/solid'
+import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/outline'
 
 interface ChartRowProps {
   rank: number
@@ -57,7 +57,7 @@ export default function ChartRow({
             {lastPosition}
           </span>
         ) : (
-          'NEW'
+          <span className="text-green-500 font-medium">NEW</span>
         )}
       </div>
 
