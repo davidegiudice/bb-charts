@@ -28,7 +28,6 @@ export async function POST(request: Request) {
     const weekDate = formData.get('weekDate') as string
     const chartType = formData.get('chartType') as string
 
-    // Read XML file
     const xmlText = await file.text()
     const result = await parseStringPromise(xmlText)
     
@@ -38,9 +37,23 @@ export async function POST(request: Request) {
 
     const items = result.chart_feed.chart[0].items[0].item as ChartItem[]
 
-    // Begin transaction
+    // Fetch all images first and cache them
+    const imagePromises = items.map(async (item) => {
+      const title = item.title[0].trim()
+      const artist = item.artist_name[0].trim()
+      return {
+        title,
+        artist,
+        imageUrl: await getTrackImage(title, artist)
+      }
+    })
+
+    const imageResults = await Promise.all(imagePromises)
+    const imageMap = new Map(
+      imageResults.map(result => [`${result.title}-${result.artist}`, result.imageUrl])
+    )
+
     await prisma.$transaction(async (tx) => {
-      // Delete existing entries for this week and chart type
       await tx.chart.deleteMany({
         where: {
           weekDate: new Date(weekDate),
@@ -48,7 +61,6 @@ export async function POST(request: Request) {
         },
       })
 
-      // Inside the transaction, before creating new entries
       const lastWeekCharts = await tx.chart.findMany({
         where: {
           chartType: chartType as any,
@@ -60,12 +72,12 @@ export async function POST(request: Request) {
         take: 100
       })
 
-      // Insert new entries
       await tx.chart.createMany({
         data: items.map((item) => {
+          const title = item.title[0].trim()
+          const artist = item.artist_name[0].trim()
           const rank = parseInt(item.rank[0])
           const peakRankValue = item.peak_rank[0]
-          // Handle "NEW" peak rank case
           const peakRank = peakRankValue === 'NEW' ? rank : parseInt(peakRankValue) || rank
           const weeksOnChart = parseInt(item.weeks_on_chart[0]) || 1
 
@@ -75,12 +87,12 @@ export async function POST(request: Request) {
             rank,
             peakRank,
             weeksOnChart,
-            lastPosition: lastWeekCharts.find(c => c.title === item.title[0].trim())?.rank || null,
-            title: item.title[0].trim(),
-            artist: item.artist_name[0].trim(),
+            lastPosition: lastWeekCharts.find(c => c.title === title)?.rank || null,
+            title,
+            artist,
             label: item.label?.[0]?.trim() || null,
             distributor: item.imprint?.[0]?.trim() || null,
-            imageUrl: await getTrackImage(item.title[0].trim(), item.artist_name[0].trim()),
+            imageUrl: imageMap.get(`${title}-${artist}`) || null,
           }
         }),
       })
