@@ -36,11 +36,11 @@ export default async function AlbumTop100Page() {
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="bg-billboard-red text-white px-6 py-3 flex items-center text-sm font-bold">
-          <div className="w-16">THIS WEEK</div>
-          <div className="flex-1">TITLE & ARTIST</div>
-          <div className="w-24 text-center">LAST WEEK</div>
-          <div className="w-24 text-center">PEAK POS.</div>
-          <div className="w-24 text-center">WKS ON CHART</div>
+          <div className="w-16">Posizione</div>
+          <div className="flex-1">Brano</div>
+          <div className="w-24 text-center">Settimana Precedente</div>
+          <div className="w-24 text-center">Picco</div>
+          <div className="w-24 text-center">Settimane in classifica</div>
         </div>
 
         <div className="divide-y divide-gray-200">

@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import { formatDate } from '@/lib/utils'
+import Image from 'next/image'
 
 async function getLatestCharts() {
   const latestWeek = await prisma.chart.findFirst({
@@ -29,31 +30,39 @@ export default async function Hot100Page() {
         <h1 className="text-4xl font-bold">HOT 100 ITALIA</h1>
         {weekDate && (
           <div className="text-lg">
-            Week of {formatDate(weekDate)}
+            Settimana del {formatDate(weekDate)}
           </div>
         )}
       </div>
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="bg-billboard-red text-white px-6 py-3 flex items-center text-sm font-bold">
-          <div className="w-16">THIS WEEK</div>
-          <div className="flex-1">TITLE & ARTIST</div>
-          <div className="w-24 text-center">LAST WEEK</div>
-          <div className="w-24 text-center">PEAK POS.</div>
-          <div className="w-24 text-center">WKS ON CHART</div>
+          <div className="w-16">Posizione</div>
+          <div className="flex-1 pl-24">Brano</div>
+          <div className="w-32 text-center">Settimana Precedente</div>
+          <div className="w-40 text-center">Settimane in classifica</div>
         </div>
 
         <div className="divide-y divide-gray-200">
           {charts.map((chart) => (
             <div key={chart.id} className="flex items-center px-6 py-4 hover:bg-gray-50">
-              <div className="w-16 text-2xl font-bold">{chart.rank}</div>
-              <div className="flex-1">
-                <div className="font-bold">{chart.title}</div>
-                <div className="text-gray-600">{chart.artist}</div>
+              <div className="w-16 text-3xl font-bold">{chart.rank}</div>
+              <div className="flex flex-1 items-center">
+                <div className="w-20 h-20 relative mr-4">
+                  <Image
+                    src={chart.imageUrl || '/placeholder-album.png'}
+                    alt={`${chart.title} cover`}
+                    fill
+                    className="object-cover rounded"
+                  />
+                </div>
+                <div>
+                  <div className="font-bold text-lg">{chart.title}</div>
+                  <div className="text-gray-600">{chart.artist}</div>
+                </div>
               </div>
-              <div className="w-24 text-center">{chart.lastPosition || '-'}</div>
-              <div className="w-24 text-center">{chart.peakRank}</div>
-              <div className="w-24 text-center">{chart.weeksOnChart}</div>
+              <div className="w-32 text-center">{chart.lastPosition || '-'}</div>
+              <div className="w-40 text-center">{chart.weeksOnChart}</div>
             </div>
           ))}
         </div>

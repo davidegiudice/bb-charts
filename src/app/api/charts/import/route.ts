@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '../../auth/[...nextauth]/route'
 import { prisma } from '@/lib/prisma'
 import { parseStringPromise } from 'xml2js'
+import { getTrackImage } from '@/lib/spotify'
 
 interface ChartItem {
   rank: string[]
@@ -79,6 +80,7 @@ export async function POST(request: Request) {
             artist: item.artist_name[0].trim(),
             label: item.label?.[0]?.trim() || null,
             distributor: item.imprint?.[0]?.trim() || null,
+            imageUrl: await getTrackImage(item.title[0].trim(), item.artist_name[0].trim()),
           }
         }),
       })

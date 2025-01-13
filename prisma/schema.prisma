@@ -30,6 +30,7 @@ model Chart {
   label        String?
   distributor  String?
   genre        Genre?
+  imageUrl     String?
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
 }
