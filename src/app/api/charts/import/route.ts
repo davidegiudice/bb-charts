@@ -33,8 +33,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid file format' }, { status: 400 })
     }
 
-    // Validate and transform the data
+    // Validate and transform the data based on the Excel structure
     const data = rawData.map((row: any, index) => {
+      // Check for required fields based on your Excel columns
       if (!row.TITOLO || !row.ARTISTA) {
         throw new Error(`Missing required fields at row ${index + 1}`)
       }
@@ -42,7 +43,7 @@ export async function POST(request: Request) {
       return {
         weekDate: new Date(weekDate),
         chartType,
-        rank: index + 1,
+        rank: row['Pos. Att.'] || index + 1, // Use actual position from Excel
         title: row.TITOLO.trim(),
         artist: row.ARTISTA.trim(),
         label: row.ETICHETTA?.trim() || null,
@@ -51,6 +52,7 @@ export async function POST(request: Request) {
     })
 
     await prisma.$transaction(async (tx) => {
+      // Delete existing entries for this week and chart type
       await tx.chart.deleteMany({
         where: {
           weekDate: new Date(weekDate),
@@ -58,6 +60,7 @@ export async function POST(request: Request) {
         },
       })
 
+      // Insert new entries
       await tx.chart.createMany({ data })
     })
 
