@@ -1,3 +1,5 @@
+'use client'
+
 import { Suspense } from 'react'
 import { prisma } from '@/lib/prisma'
 import { ChartType, Genre } from '@prisma/client'
@@ -7,6 +9,7 @@ import ChartFilters from '@/components/ChartFilters'
 import Loading from '@/components/Loading'
 import WeekSelector from '@/components/WeekSelector'
 import Pagination from '@/components/Pagination'
+import { useSession } from 'next-auth/react'
 
 type Props = {
   searchParams: {
@@ -57,7 +60,8 @@ async function getCharts(params: Props['searchParams']) {
   }
 }
 
-export default async function ChartsPage({ searchParams }: Props) {
+export default function ChartsPage() {
+  const { data: session } = useSession()
   const availableWeeks = await getAvailableWeeks()
 
   return (

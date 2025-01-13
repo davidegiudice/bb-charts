@@ -3,10 +3,10 @@ import { read, utils } from 'xlsx'
 import { prisma } from '@/lib/prisma'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../../auth/[...nextauth]/route'
+import { ChartType } from '@prisma/client'
 
 export async function POST(request: Request) {
   try {
-    // Check authentication
     const session = await getServerSession(authOptions)
     if (!session || session.user?.role !== 'ADMIN') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const formData = await request.formData()
     const file = formData.get('file') as File
     const weekDate = formData.get('weekDate') as string
-    const chartType = formData.get('chartType') as string
+    const chartType = formData.get('chartType') as ChartType
 
     if (!file || !weekDate || !chartType) {
       return NextResponse.json(
@@ -27,35 +27,38 @@ export async function POST(request: Request) {
     const buffer = await file.arrayBuffer()
     const workbook = read(buffer)
     const worksheet = workbook.Sheets[workbook.SheetNames[0]]
-    const data = utils.sheet_to_json(worksheet)
+    const rawData = utils.sheet_to_json(worksheet)
 
-    // Validate data structure
-    if (!Array.isArray(data) || data.length === 0) {
+    if (!Array.isArray(rawData) || rawData.length === 0) {
       return NextResponse.json({ error: 'Invalid file format' }, { status: 400 })
     }
 
-    // Process and insert data
+    // Validate and transform the data
+    const data = rawData.map((row: any, index) => {
+      if (!row.TITOLO || !row.ARTISTA) {
+        throw new Error(`Missing required fields at row ${index + 1}`)
+      }
+
+      return {
+        weekDate: new Date(weekDate),
+        chartType,
+        rank: index + 1,
+        title: row.TITOLO.trim(),
+        artist: row.ARTISTA.trim(),
+        label: row.ETICHETTA?.trim() || null,
+        distributor: row.DISTRIBUTORE?.trim() || null,
+      }
+    })
+
     await prisma.$transaction(async (tx) => {
-      // Delete existing entries for this week and chart type
       await tx.chart.deleteMany({
         where: {
           weekDate: new Date(weekDate),
-          chartType: chartType as any,
+          chartType,
         },
       })
 
-      // Insert new entries
-      await tx.chart.createMany({
-        data: data.map((row: any, index) => ({
-          weekDate: new Date(weekDate),
-          chartType: chartType as any,
-          rank: index + 1,
-          title: row.TITOLO,
-          artist: row.ARTISTA,
-          label: row.ETICHETTA,
-          distributor: row.DISTRIBUTORE,
-        })),
-      })
+      await tx.chart.createMany({ data })
     })
 
     return NextResponse.json({ 
@@ -66,7 +69,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Chart import error:', error)
     return NextResponse.json(
-      { error: 'Failed to process file' },
+      { error: error instanceof Error ? error.message : 'Failed to process file' },
       { status: 500 }
     )
   }
