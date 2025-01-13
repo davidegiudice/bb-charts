@@ -47,6 +47,18 @@ export async function POST(request: Request) {
         },
       })
 
+      // Inside the transaction, before creating new entries
+      const lastWeekCharts = await tx.chart.findMany({
+        where: {
+          chartType: chartType as any,
+          weekDate: {
+            lt: new Date(weekDate)
+          }
+        },
+        orderBy: { weekDate: 'desc' },
+        take: 100
+      })
+
       // Insert new entries
       await tx.chart.createMany({
         data: items.map((item) => {
@@ -62,6 +74,7 @@ export async function POST(request: Request) {
             rank,
             peakRank,
             weeksOnChart,
+            lastPosition: lastWeekCharts.find(c => c.title === item.title[0].trim())?.rank || null,
             title: item.title[0].trim(),
             artist: item.artist_name[0].trim(),
             label: item.label?.[0]?.trim() || null,

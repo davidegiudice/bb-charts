@@ -22,6 +22,7 @@ model Chart {
   weekDate     DateTime
   chartType    ChartType
   rank         Int
+  lastPosition Int?
   peakRank     Int
   weeksOnChart Int
   title        String
