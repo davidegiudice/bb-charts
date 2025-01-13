@@ -33,8 +33,27 @@ export async function getTrackImage(title: string, artist: string): Promise<stri
 
     // If not in cache, fetch from Spotify
     await ensureValidToken()
-    const searchResult = await spotifyApi.searchTracks(`track:${title} artist:${artist}`)
-    const imageUrl = searchResult.body.tracks?.items[0]?.album.images[0]?.url || null
+    
+    // Clean up the search terms
+    const cleanTitle = title.replace(/\(.*?\)/g, '').trim() // Remove text in parentheses
+    const cleanArtist = artist.split(/[,&]|feat\./)[0].trim() // Take only the first artist
+    
+    // Search with both title and artist
+    const searchResult = await spotifyApi.searchTracks(`track:"${cleanTitle}" artist:"${cleanArtist}"`, {
+      limit: 1,
+      market: 'IT'
+    })
+
+    let imageUrl = searchResult.body.tracks?.items[0]?.album.images[0]?.url
+
+    // If no result, try with just the title
+    if (!imageUrl) {
+      const titleOnlyResult = await spotifyApi.searchTracks(`track:"${cleanTitle}"`, {
+        limit: 1,
+        market: 'IT'
+      })
+      imageUrl = titleOnlyResult.body.tracks?.items[0]?.album.images[0]?.url
+    }
 
     // Cache the result if we found an image
     if (imageUrl) {

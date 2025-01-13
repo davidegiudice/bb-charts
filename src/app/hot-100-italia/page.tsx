@@ -36,33 +36,62 @@ export default async function Hot100Page() {
       </div>
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-        <div className="bg-billboard-red text-white px-6 py-3 flex items-center text-sm font-bold">
-          <div className="w-16">Posizione</div>
-          <div className="flex-1 pl-24">Brano</div>
-          <div className="w-32 text-center">Settimana Precedente</div>
-          <div className="w-40 text-center">Settimane in classifica</div>
+        <div className="bg-[#1e3a8a] text-white px-4 py-3 flex items-center text-sm font-bold">
+          <div className="w-20 text-center">Posizione</div>
+          <div className="flex-1 ml-24">Brano</div>
+          <div className="w-28 text-center">Settimana Precedente</div>
+          <div className="w-36 text-center">Settimane in classifica</div>
         </div>
 
-        <div className="divide-y divide-gray-200">
+        <div>
           {charts.map((chart) => (
-            <div key={chart.id} className="flex items-center px-6 py-4 hover:bg-gray-50">
-              <div className="w-16 text-3xl font-bold">{chart.rank}</div>
+            <div 
+              key={chart.id} 
+              className="flex items-center px-4 py-3 hover:bg-gray-50 border-b border-gray-200 group"
+            >
+              <div className="w-20 text-center">
+                <span className="text-3xl font-bold">{chart.rank}</span>
+              </div>
+              
               <div className="flex flex-1 items-center">
-                <div className="w-20 h-20 relative mr-4">
+                <div className="w-20 h-20 relative mr-4 overflow-hidden">
                   <Image
                     src={chart.imageUrl || '/placeholder-album.png'}
                     alt={`${chart.title} cover`}
                     fill
-                    className="object-cover rounded"
+                    className="object-cover"
+                    sizes="80px"
                   />
                 </div>
                 <div>
-                  <div className="font-bold text-lg">{chart.title}</div>
+                  <div className="font-bold text-lg group-hover:text-blue-600">
+                    {chart.title}
+                  </div>
                   <div className="text-gray-600">{chart.artist}</div>
                 </div>
               </div>
-              <div className="w-32 text-center">{chart.lastPosition || '-'}</div>
-              <div className="w-40 text-center">{chart.weeksOnChart}</div>
+
+              <div className="w-28 text-center">
+                {chart.lastPosition ? (
+                  <span className="inline-flex items-center">
+                    {chart.lastPosition < chart.rank && (
+                      <svg className="w-4 h-4 text-red-500 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                      </svg>
+                    )}
+                    {chart.lastPosition > chart.rank && (
+                      <svg className="w-4 h-4 text-green-500 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                      </svg>
+                    )}
+                    {chart.lastPosition}
+                  </span>
+                ) : (
+                  'NEW'
+                )}
+              </div>
+
+              <div className="w-36 text-center">{chart.weeksOnChart}</div>
             </div>
           ))}
         </div>
