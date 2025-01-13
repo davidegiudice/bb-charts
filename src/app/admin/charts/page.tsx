@@ -114,11 +114,11 @@ export default function AdminChartsPage() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Excel File
+              XML File
             </label>
             <input
               type="file"
-              accept=".xlsx,.xls"
+              accept=".xml"
               onChange={(e) => setFile(e.target.files?.[0] || null)}
               className="mt-1 block w-full p-2"
               required
