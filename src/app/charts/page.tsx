@@ -7,6 +7,8 @@ import ChartFilters from '@/components/ChartFilters'
 import Loading from '@/components/Loading'
 import WeekSelector from '@/components/WeekSelector'
 import { useSession } from 'next-auth/react'
+import WeeksLoader from '@/components/WeeksLoader'
+import ChartsList from '@/components/ChartsList'
 
 type Props = {
   searchParams: {
