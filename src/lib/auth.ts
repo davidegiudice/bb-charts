@@ -1,22 +1,11 @@
-import type { NextAuthConfig } from 'next-auth'
-import type { User as NextAuthUser } from 'next-auth'
-import type { JWT } from 'next-auth/jwt'
+import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from './prisma'
 import bcrypt from 'bcryptjs'
 import { Role } from '@prisma/client'
 
-interface Credentials {
-  email: string
-  password: string
-}
-
-interface ExtendedUser extends NextAuthUser {
-  role: Role
-}
-
-export const authOptions: NextAuthConfig = {
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
@@ -25,7 +14,7 @@ export const authOptions: NextAuthConfig = {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' }
       },
-      async authorize(credentials: Credentials | undefined) {
+      async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
           return null
         }
@@ -57,15 +46,15 @@ export const authOptions: NextAuthConfig = {
     })
   ],
   callbacks: {
-    async jwt({ token, user }: { token: JWT, user?: ExtendedUser }) {
+    async jwt({ token, user }) {
       if (user) {
         token.role = user.role
       }
       return token
     },
-    async session({ session, token }: { session: any, token: JWT }) {
-      if (session?.user) {
-        session.user.role = token.role
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.role = token.role as Role
       }
       return session
     }
