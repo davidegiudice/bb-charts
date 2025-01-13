@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata as NextMetadata } from 'next'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Billboard Italia',
   description: 'Billboard Charts Italia - Official Music Charts',
-} satisfies Metadata
+} satisfies NextMetadata
 
 export default function RootLayout({
   children,
