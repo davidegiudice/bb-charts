@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server'
-import { parseStringPromise } from 'xml2js'
-import { prisma } from '@/lib/prisma'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../../auth/[...nextauth]/route'
-import { ChartType } from '@prisma/client'
+import { prisma } from '@/lib/prisma'
+import { parseStringPromise } from 'xml2js'
 
 interface ChartItem {
   rank: string[]
@@ -16,23 +15,17 @@ interface ChartItem {
 }
 
 export async function POST(request: Request) {
-  try {
-    const session = await getServerSession(authOptions)
-    if (!session || session.user?.role !== 'ADMIN') {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
+  const session = await getServerSession(authOptions)
+  
+  if (!session || session.user?.role !== 'ADMIN') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
 
+  try {
     const formData = await request.formData()
     const file = formData.get('file') as File
     const weekDate = formData.get('weekDate') as string
-    const chartType = formData.get('chartType') as ChartType
-
-    if (!file || !weekDate || !chartType) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      )
-    }
+    const chartType = formData.get('chartType') as string
 
     // Read XML file
     const xmlText = await file.text()
@@ -44,45 +37,46 @@ export async function POST(request: Request) {
 
     const items = result.chart_feed.chart[0].items[0].item as ChartItem[]
 
-    // Transform XML data to chart entries
-    const data = items.map((item) => {
-      if (!item.title?.[0] || !item.artist_name?.[0]) {
-        throw new Error('Missing required fields')
-      }
-
-      return {
-        weekDate: new Date(weekDate),
-        chartType,
-        rank: parseInt(item.rank[0]),
-        peakRank: parseInt(item.peak_rank[0]),
-        weeksOnChart: parseInt(item.weeks_on_chart[0]),
-        title: item.title[0].trim(),
-        artist: item.artist_name[0].trim(),
-        label: item.label?.[0]?.trim() || null,
-        distributor: item.imprint?.[0]?.trim() || null,
-      }
-    })
-
+    // Begin transaction
     await prisma.$transaction(async (tx) => {
       // Delete existing entries for this week and chart type
       await tx.chart.deleteMany({
         where: {
           weekDate: new Date(weekDate),
-          chartType,
+          chartType: chartType as any,
         },
       })
 
       // Insert new entries
-      await tx.chart.createMany({ data })
+      await tx.chart.createMany({
+        data: items.map((item) => {
+          const rank = parseInt(item.rank[0])
+          const peakRankValue = item.peak_rank[0]
+          // Handle "NEW" peak rank case
+          const peakRank = peakRankValue === 'NEW' ? rank : parseInt(peakRankValue) || rank
+          const weeksOnChart = parseInt(item.weeks_on_chart[0]) || 1
+
+          return {
+            weekDate: new Date(weekDate),
+            chartType: chartType as any,
+            rank,
+            peakRank,
+            weeksOnChart,
+            title: item.title[0].trim(),
+            artist: item.artist_name[0].trim(),
+            label: item.label?.[0]?.trim() || null,
+            distributor: item.imprint?.[0]?.trim() || null,
+          }
+        }),
+      })
     })
 
     return NextResponse.json({ 
       success: true,
-      message: `Imported ${data.length} entries successfully`
+      message: `Imported ${items.length} entries successfully`
     })
-
   } catch (error) {
-    console.error('Chart import error:', error)
+    console.error('Error uploading chart:', error)
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to process file' },
       { status: 500 }
