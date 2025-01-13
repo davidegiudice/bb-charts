@@ -1,5 +1,8 @@
 'use client'
 
+import Image from 'next/image'
+import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/solid'
+
 interface ChartRowProps {
   rank: number
   title: string
@@ -18,10 +21,10 @@ export default function ChartRow({
   weeksOnChart
 }: ChartRowProps) {
   return (
-    <div className="flex items-center px-4 py-3 hover:bg-gray-50 border-b border-gray-200 group">
-      <div className="w-16 text-3xl font-bold text-center">{rank}</div>
+    <div className="chart-row">
+      <div className="rank-cell">{rank}</div>
       
-      <div className="flex flex-1 items-center">
+      <div className="title-cell">
         <div className="w-20 h-20 relative mr-4 bg-gray-100">
           {imageUrl && (
             <Image
@@ -30,6 +33,7 @@ export default function ChartRow({
               fill
               className="object-cover"
               sizes="80px"
+              priority={rank <= 10}
             />
           )}
         </div>
@@ -41,14 +45,15 @@ export default function ChartRow({
         </div>
       </div>
 
-      <div className="w-28 text-center">
+      <div className="movement-cell">
         {lastPosition ? (
           <span className="inline-flex items-center">
-            {lastPosition < rank ? (
+            {lastPosition < rank && (
               <ArrowDownIcon className="w-4 h-4 text-red-500 mr-1" />
-            ) : lastPosition > rank ? (
+            )}
+            {lastPosition > rank && (
               <ArrowUpIcon className="w-4 h-4 text-green-500 mr-1" />
-            ) : null}
+            )}
             {lastPosition}
           </span>
         ) : (
@@ -56,7 +61,7 @@ export default function ChartRow({
         )}
       </div>
 
-      <div className="w-36 text-center">{weeksOnChart}</div>
+      <div className="weeks-cell">{weeksOnChart}</div>
     </div>
   )
 } 

@@ -21,7 +21,8 @@
     "xml2js": "^0.6.2",
     "spotify-web-api-node": "^5.0.2",
     "@upstash/redis": "^1.28.3",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "heroicons/react": "^2.0.16"
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.6",

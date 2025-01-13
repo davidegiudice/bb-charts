@@ -9,10 +9,10 @@ import { authOptions } from '@/lib/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Billboard Italia',
   description: 'Billboard Charts Italia - Official Music Charts',
-}
+} satisfies Metadata
 
 export default function RootLayout({
   children,
