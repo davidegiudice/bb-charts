@@ -1,6 +1,7 @@
 'use client'
 
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import Select from 'react-select'
 
 interface WeekSelectorProps {
   weeks: string[]
@@ -8,24 +9,23 @@ interface WeekSelectorProps {
 }
 
 export default function WeekSelector({ weeks, selectedWeek }: WeekSelectorProps) {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-
-  const handleWeekChange = (week: string) => {
-    const params = new URLSearchParams(searchParams.toString())
-    params.set('weekDate', week)
-    router.push(`?${params.toString()}`)
-  }
-
   return (
     <select
+      className="w-full p-2 border rounded"
       value={selectedWeek || weeks[0]}
-      onChange={(e) => handleWeekChange(e.target.value)}
-      className="block w-full rounded-md border-gray-300 shadow-sm p-2"
+      onChange={(e) => {
+        const url = new URL(window.location.href)
+        url.searchParams.set('weekDate', e.target.value)
+        window.location.href = url.toString()
+      }}
     >
-      {weeks.map((week) => (
+      {weeks.map(week => (
         <option key={week} value={week}>
-          Week of {new Date(week).toLocaleDateString()}
+          {new Intl.DateTimeFormat('it-IT', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          }).format(new Date(week))}
         </option>
       ))}
     </select>

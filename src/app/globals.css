@@ -3,92 +3,92 @@
 @tailwind utilities;
 
 :root {
-  --primary: #e4003d;     /* Billboard red */
-  --secondary: #000000;   /* Black */
-  --accent: #f8f8f8;     /* Light gray */
-  --text: #2d2d2d;
+  --billboard-blue: #1e47b9;
+  --billboard-red: #e4003d;
+  --billboard-black: #000000;
+  --billboard-gray: #f8f8f8;
 }
 
 @layer components {
-  .hover-scale {
-    @apply transition-transform duration-300 ease-out;
-  }
-
-  .hover-scale:hover {
-    @apply transform scale-105;
-  }
-
-  .chart-card {
-    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
-    background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
-  }
-
-  .btn-primary {
-    @apply px-6 py-3 bg-billboard-red text-white rounded-lg 
-           transition-all duration-300 ease-in-out
-           hover:bg-opacity-90 hover:shadow-lg
-           disabled:opacity-50 disabled:cursor-not-allowed;
-  }
-
-  .nav-link {
-    @apply relative text-billboard-black hover:text-billboard-red transition-colors duration-200;
-  }
-
-  .nav-link::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-billboard-red 
-           transition-all duration-300 ease-out;
-  }
-
-  .nav-link:hover::after {
-    @apply w-full;
-  }
-
-  .modern-table {
-    @apply w-full border-collapse;
-  }
-
-  .modern-table th {
-    @apply bg-billboard-black text-white px-6 py-3 text-left text-sm font-semibold;
-  }
-
-  .modern-table td {
-    @apply px-6 py-4 border-b border-gray-200;
-  }
-
-  .modern-table tr:hover {
-    @apply bg-gray-50 transition-colors duration-200;
+  .chart-container {
+    @apply max-w-7xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden;
   }
 
   .chart-header {
-    @apply bg-[#1e3a8a] text-white px-4 py-3 flex items-center text-sm font-bold;
-  }
-
-  .chart-cell {
-    @apply px-4 py-3;
+    @apply bg-billboard-blue text-white px-6 py-4 flex justify-between items-center;
   }
 
   .chart-row {
-    @apply flex items-center hover:bg-gray-50 border-b border-gray-200 transition-colors duration-200;
+    @apply flex items-center px-6 py-4 hover:bg-gray-50 border-b border-gray-200;
   }
 
-  .rank-cell {
-    @apply w-16 text-3xl font-bold text-center;
+  .rank {
+    @apply w-24 text-4xl font-bold;
   }
 
-  .title-cell {
-    @apply flex-1 flex items-center;
+  .track-info {
+    @apply flex-1 flex items-center gap-4;
   }
 
-  .movement-cell {
-    @apply w-28 text-center;
+  .artwork {
+    @apply w-20 h-20 object-cover rounded;
   }
 
-  .weeks-cell {
-    @apply w-36 text-center;
+  .track-details {
+    @apply flex flex-col;
+  }
+
+  .track-title {
+    @apply text-lg font-bold;
+  }
+
+  .track-artist {
+    @apply text-gray-600;
+  }
+
+  .chart-stats {
+    @apply flex items-center gap-8 w-64;
+  }
+
+  .movement {
+    @apply flex items-center gap-2 w-20;
+  }
+
+  .movement-up {
+    @apply text-green-600;
+  }
+
+  .movement-down {
+    @apply text-red-600;
+  }
+
+  .movement-new {
+    @apply bg-yellow-400 text-black px-2 py-0.5 rounded text-sm font-bold;
+  }
+
+  .weeks-on-chart {
+    @apply w-20 text-center;
+  }
+
+  .peak-position {
+    @apply w-20 text-center;
   }
 }
 
 body {
   @apply text-billboard-black bg-billboard-gray;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
 } 
