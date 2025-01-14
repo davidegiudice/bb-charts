@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import { formatDate } from '@/lib/utils'
+import type { ChartData } from '@/types'
 
 async function getLatestCharts() {
   const latestWeek = await prisma.chart.findFirst({
@@ -20,7 +21,7 @@ async function getLatestCharts() {
 }
 
 export default async function AlbumTop100Page() {
-  const charts = await getLatestCharts()
+  const charts = await getLatestCharts() as ChartData[]
   const weekDate = charts[0]?.weekDate
 
   return (
@@ -44,7 +45,7 @@ export default async function AlbumTop100Page() {
         </div>
 
         <div className="divide-y divide-gray-200">
-          {charts.map((chart) => (
+          {charts.map((chart: ChartData) => (
             <div key={chart.id} className="flex items-center px-6 py-4 hover:bg-gray-50">
               <div className="w-16 text-2xl font-bold">{chart.rank}</div>
               <div className="flex-1">

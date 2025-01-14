@@ -3,6 +3,19 @@ import { Chart, User, Role } from '@prisma/client'
 // React types
 import type { ChangeEvent, FormEvent } from 'react'
 
+export interface ChartData extends Chart {
+  id: string
+  rank: number
+  title: string
+  artist: string
+  imageUrl: string | null
+  lastPosition: number | null
+  peakRank: number
+  weeksOnChart: number
+  chartType: ChartType
+  weekDate: Date
+}
+
 export interface ChartRowProps {
   rank: number
   title: string
