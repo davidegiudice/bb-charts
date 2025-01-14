@@ -6,7 +6,24 @@ declare module 'next/navigation'
 declare module 'react-hot-toast'
 declare module '@prisma/client'
 declare module 'bcryptjs'
-declare module 'react'
+
+declare module 'react' {
+  type SetStateAction<S> = S | ((prevState: S) => S)
+  type Dispatch<A> = (value: A) => void
+
+  interface ReactElement<P = any, T extends string | JSXElementConstructor<any> = string | JSXElementConstructor<any>> {
+    type: T;
+    props: P;
+    key: Key | null;
+  }
+
+  interface FunctionComponent<P = {}> {
+    (props: P, context?: any): ReactElement<any, any> | null;
+  }
+
+  function useState<T>(initialState: T | (() => T)): [T, Dispatch<SetStateAction<T>>];
+  function useState<T = undefined>(): [T | undefined, Dispatch<SetStateAction<T | undefined>>];
+}
 
 // Add JSX namespace for intrinsic elements
 declare namespace JSX {
@@ -19,15 +36,5 @@ declare namespace JSX {
 declare namespace React {
   interface ReactNode {
     [key: string]: any;
-  }
-  
-  interface FunctionComponent<P = {}> {
-    (props: P, context?: any): ReactElement<any, any> | null;
-  }
-
-  interface ReactElement<P = any, T extends string | JSXElementConstructor<any> = string | JSXElementConstructor<any>> {
-    type: T;
-    props: P;
-    key: Key | null;
   }
 } 
