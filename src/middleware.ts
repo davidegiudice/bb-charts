@@ -1,14 +1,12 @@
 import { NextResponse } from 'next/server'
 import { withAuth } from 'next-auth/middleware'
-import type { NextRequest } from 'next/server'
+import type { Role } from '@prisma/client'
 
 export default withAuth(
-  function middleware(req: NextRequest & { nextauth: { token: any } }) {
+  function middleware(req) {
     const token = req.nextauth?.token
-    const isAdmin = token?.role === 'ADMIN'
-    const isEditor = token?.role === 'EDITOR'
-
-    if (!isAdmin && !isEditor) {
+    
+    if (token?.role !== 'ADMIN' && token?.role !== 'EDITOR') {
       return NextResponse.redirect(new URL('/login', req.url))
     }
     return NextResponse.next()
