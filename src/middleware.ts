@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server'
-import { withAuth, type NextAuthMiddlewareOptions } from 'next-auth/middleware'
+import { withAuth } from 'next-auth/middleware'
+import type { NextRequestWithAuth } from 'next-auth/middleware'
 
 export default withAuth(
-  function middleware(request: Parameters<NonNullable<NextAuthMiddlewareOptions['callbacks']>['authorized']>[0]['req']) {
+  function middleware(request: NextRequestWithAuth) {
     const token = request.nextauth.token
     const isAdmin = token?.role === 'ADMIN'
     const isEditor = token?.role === 'EDITOR'
