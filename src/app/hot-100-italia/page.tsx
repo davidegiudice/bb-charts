@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma'
 import { formatDate } from '@/lib/utils'
 import Image from 'next/image'
 import ChartRow from '@/components/ChartRow'
+import type { Chart } from '@prisma/client'
 
 async function getLatestCharts() {
   const latestWeek = await prisma.chart.findFirst({
@@ -53,7 +54,7 @@ export default async function Hot100Page() {
               artist={chart.artist}
               imageUrl={chart.imageUrl}
               lastWeek={chart.lastPosition}
-              peakPosition={chart.peakPosition || chart.rank}
+              peakPosition={chart.peakRank}
               weeksOnChart={chart.weeksOnChart}
               isNew={!chart.lastPosition}
             />
