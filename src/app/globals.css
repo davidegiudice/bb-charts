@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --billboard-blue: #1e47b9;
-  --billboard-red: #e4003d;
-  --billboard-black: #000000;
-  --billboard-gray: #f8f8f8;
-}
-
 @layer components {
   .chart-container {
     @apply max-w-7xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden;

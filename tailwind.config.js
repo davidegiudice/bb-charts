@@ -9,10 +9,11 @@ module.exports = {
     extend: {
       colors: {
         billboard: {
+          blue: '#1e47b9',
           red: '#e4003d',
           black: '#000000',
           gray: '#f8f8f8',
-        },
+        }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
