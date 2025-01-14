@@ -1,8 +1,9 @@
 import { prisma } from '@/lib/prisma'
-import { getServerSession } from 'next-auth'
+import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { Role } from '@prisma/client'
+import type { UserData } from '@/types'
 
 export default async function UsersPage() {
   const session = await getServerSession(authOptions)
@@ -13,7 +14,7 @@ export default async function UsersPage() {
 
   const users = await prisma.user.findMany({
     orderBy: { createdAt: 'desc' }
-  })
+  }) as UserData[]
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -29,7 +30,7 @@ export default async function UsersPage() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
+            {users.map((user: UserData) => (
               <tr key={user.id}>
                 <td>{user.name || '-'}</td>
                 <td>{user.email}</td>

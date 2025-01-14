@@ -7,6 +7,23 @@ declare module 'react-hot-toast'
 declare module '@prisma/client'
 declare module 'bcryptjs'
 
+declare module 'next-auth' {
+  interface Session {
+    user?: {
+      id: string
+      email: string
+      name?: string | null
+      role?: Role
+    }
+  }
+}
+
+declare module 'next-auth/next' {
+  import type { NextAuthOptions } from 'next-auth'
+  import type { Session } from 'next-auth'
+  export function getServerSession(options: NextAuthOptions): Promise<Session | null>
+}
+
 declare module 'react' {
   type SetStateAction<S> = S | ((prevState: S) => S)
   type Dispatch<A> = (value: A) => void

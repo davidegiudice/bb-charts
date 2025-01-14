@@ -1,4 +1,4 @@
-import { Chart } from '@prisma/client'
+import { Chart, User, Role } from '@prisma/client'
 
 // React types
 import type { ChangeEvent, FormEvent } from 'react'
@@ -20,6 +20,15 @@ export type ChartType = 'TOP_100' | 'TOP_ALBUM' | 'TOP_VINYL' | 'TOP_ROCK' | 'TO
 export type InputChangeEvent = ChangeEvent<HTMLInputElement>
 export type SelectChangeEvent = ChangeEvent<HTMLSelectElement>
 export type FormSubmitEvent = FormEvent<HTMLFormElement>
+
+// User types
+export interface UserData extends User {
+  id: string
+  email: string
+  name: string | null
+  role: Role
+  createdAt: Date
+}
 
 // Add React component types
 declare global {
