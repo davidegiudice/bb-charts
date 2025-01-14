@@ -1,4 +1,3 @@
-import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import './globals.css'
@@ -6,7 +5,7 @@ import Providers from '@/components/Providers'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Billboard Italia',
   description: 'Billboard Charts Italia - Official Music Charts',
 }
