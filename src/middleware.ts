@@ -1,23 +1,15 @@
-import { NextResponse } from 'next/server'
+// middleware.ts
 import { withAuth } from 'next-auth/middleware'
 
-export default withAuth(
-  async function middleware(req: any) {
-    const token = req.nextauth?.token
-
-    if (token?.role !== 'ADMIN' && token?.role !== 'EDITOR') {
-      return NextResponse.redirect(new URL('/login', req.url))
-    }
-
-    return NextResponse.next()
+export default withAuth({
+  callbacks: {
+    authorized({ token }) {
+      // Only allow ADMIN or EDITOR
+      return !!token && (token.role === 'ADMIN' || token.role === 'EDITOR')
+    },
   },
-  {
-    callbacks: {
-      authorized: ({ token }) => !!token
-    }
-  }
-)
+})
 
 export const config = {
   matcher: ['/admin/:path*', '/editor/:path*'],
-} 
+}
