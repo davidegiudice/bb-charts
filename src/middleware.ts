@@ -1,18 +1,8 @@
 import { NextResponse } from 'next/server'
 import { withAuth } from 'next-auth/middleware'
-import type { NextRequest } from 'next/server'
-
-// Create a local type that includes nextauth.token
-type AuthRequest = NextRequest & {
-  nextauth?: {
-    token?: {
-      role?: string
-    }
-  }
-}
 
 export default withAuth(
-  async function middleware(req: AuthRequest) {
+  async function middleware(req: any) {
     const token = req.nextauth?.token
 
     if (token?.role !== 'ADMIN' && token?.role !== 'EDITOR') {
@@ -23,10 +13,7 @@ export default withAuth(
   },
   {
     callbacks: {
-      authorized: ({ token }) => {
-        // Basic check that token exists
-        return !!token
-      }
+      authorized: ({ token }) => !!token
     }
   }
 )
