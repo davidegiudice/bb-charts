@@ -11,6 +11,7 @@ echo "==========================================="
 
 # Step 1: Pull latest changes
 echo "📥 Pulling the latest changes from Git..."
+git stash
 git pull || { echo "❌ Failed to pull the latest changes."; exit 1; }
 
 # Step 2: Clean up old builds and caches
