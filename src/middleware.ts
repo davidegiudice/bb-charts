@@ -1,21 +1,22 @@
 import { NextResponse } from 'next/server'
 import { withAuth } from 'next-auth/middleware'
-import type { NextRequestWithAuth } from 'next-auth/middleware'
+import type { NextRequest } from 'next/server'
 
 export default withAuth(
-  function middleware(request: NextRequestWithAuth) {
-    const token = request.nextauth.token
+  function middleware(req) {
+    const token = req.nextauth?.token
     const isAdmin = token?.role === 'ADMIN'
     const isEditor = token?.role === 'EDITOR'
 
     if (!isAdmin && !isEditor) {
-      return NextResponse.redirect(new URL('/login', request.url))
+      return NextResponse.redirect(new URL('/login', req.url))
     }
+    return NextResponse.next()
   },
   {
     callbacks: {
-      authorized: ({ token }) => !!token,
-    },
+      authorized: ({ token }) => !!token
+    }
   }
 )
 
