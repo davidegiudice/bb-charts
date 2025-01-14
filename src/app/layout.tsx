@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import './globals.css'
@@ -6,7 +6,10 @@ import Providers from '@/components/Providers'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 
-const inter = Inter({ subsets: ['latin'] })
+export const metadata: Metadata = {
+  title: 'Billboard Italia',
+  description: 'Billboard Charts Italia - Official Music Charts',
+}
 
 export default function RootLayout({
   children,
@@ -15,11 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
-      <head>
-        <title>Billboard Italia</title>
-        <meta name="description" content="Billboard Charts Italia - Official Music Charts" />
-      </head>
-      <body className={inter.className}>
+      <body>
         <Providers>
           <header className="bg-black py-4">
             <div className="max-w-7xl mx-auto px-4">
