@@ -52,8 +52,10 @@ export default async function Hot100Page() {
               title={chart.title}
               artist={chart.artist}
               imageUrl={chart.imageUrl}
-              lastPosition={chart.lastPosition}
+              lastWeek={chart.lastPosition}
+              peakPosition={chart.peakPosition || chart.rank}
               weeksOnChart={chart.weeksOnChart}
+              isNew={!chart.lastPosition}
             />
           ))}
         </div>
