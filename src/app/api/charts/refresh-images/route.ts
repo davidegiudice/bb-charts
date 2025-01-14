@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getTrackImage } from '@/lib/spotify'
-import prisma from '@/lib/prisma'
+import { prisma } from '@/lib/prisma'
 
 export async function POST() {
   try {
